@@ -64,6 +64,7 @@ public class Movimiento : MonoBehaviour
 
         // on ground
         if (grounded)
+            moveDirection.y = 0f;
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 
@@ -75,7 +76,7 @@ public class Movimiento : MonoBehaviour
         if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            rb.velocity = new Vector3(limitedVel.x, 0f, limitedVel.z);
         }
     }
 
